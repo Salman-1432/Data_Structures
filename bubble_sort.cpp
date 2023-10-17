@@ -1,65 +1,42 @@
-/* #include<iostream>
+#include<iostream>
 using namespace std;
-int bubblesort(int A[],int n)
+int bubbleSort(int Arr[],int n)
 {
+    cout<<"Enter the sorting :"<<endl;
+    for(int i=0;i<n;i++)
+    {
+        cin>>Arr[i];// for input
+    }
+    cout<<"bubble sort:"<<endl;
     for(int i=0;i<n-1;i++)
     {
         int flag=0;
         for(int j=0;j<n-1-i;j++)
         {
-            if(A[j]>A[j+1])
+            int temp;
+            if(Arr[j]<Arr[j+1]) // for reverse element // for swap number
             {
-                int tamp;
-                tamp=A[j];
-                A[j]=A[j+1];
-                A[j+1]=tamp;
-                flag=1;
+            temp=Arr[j];
+            Arr[j]=Arr[j+1];
+            Arr[j+1]=temp;
+            flag=1;
             }
         }
         if(flag==0)
-        break;
+        {
+            cout<<"sorted is already:"<<endl;
+            break;
+        }
     }
-}
-int main()
-{
-    int A[50],n;
-    cout<<"Enter the numer of the Array:"<<endl;
-    cin>>n;
-    cout<<"\n";
-    cout<<"Enter the step by step:"<<endl;
+    cout<<"show the data:"<<endl;
     for(int i=0;i<n;i++)
     {
-        cin>>A[i];
+        cout<<Arr[i]<<" ";// print the number;
     }
-    cout<<"\n";
-    bubblesort(A,n);
-    cout<<"show the bubble short:"<<endl;
-    for(int i=0;i<n-1;i++)
-    {
-        cout<<A[i]<<endl;
-    }
-} */
-#include<iostream>
-using namespace std;
-int fun1(int A[],int n,int k)
-{
-    for(int i=k-1;i>=0;i--)
-    {
-        cout<<A[i]<<" ";
-    }
-    cout<<endl;
-    for(int i=n-1;n>k-1;i--)
-    {
-        cout<<A[i]<<" ";
-    }
-    cout<<endl;
-
 }
 int main()
 {
-    int A[5]={1,2,3,4,5};
-    int size=sizeof(A)/sizeof(A[0]);
-    int k=3;
-    fun1(A,size,k);
-
+    int Arr[5];
+    int size=sizeof(Arr)/sizeof(int);// declare size of the array
+    int p=bubbleSort(Arr,size);// calling the function             
 }
